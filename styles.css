@@ -1,0 +1,10 @@
+#divEntradas{
+    display: flex;
+}
+.cardReserva{
+    background-color: rgb(210, 136, 40);
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px;
+    width: 200px;
+}

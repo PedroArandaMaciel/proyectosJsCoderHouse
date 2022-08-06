@@ -15,19 +15,19 @@ function entrada(pelicula, cantMayores, precioReservaMayores, cantMenores, preci
 }
 function cancelarReserva(idReserva) {
     reservas.splice(idReserva - 1, 1)
-    reservas.push(`La reserva ${idReserva} fue cancelada `)
+    console.log(`La reserva ${idReserva} fue cancelada `)
 }
 class Reserva {
-    constructor(pelicula = "", cantMayor = 0, cantMenor = 0, idReserva) {
+    constructor(pelicula = "", cantMayor = 0, cantMenor = 0, id) {
         this.Pelicula = pelicula;
         this.Mayores = cantMayor;
         this.Menores = cantMenor;
-        this.NumeroReserva = idReserva;
+        this.Id = id;
     }
 }
 alert("Bienvenido al sistema de reserva de entradas")
 const reservas = []
-let repetir = true, conteoReserva = 1
+let repetir = true, idReserva = 1
 while (repetir) {
     let pelicula, cantMayores = 0, cantMenores = 0, pregunta, precioReservaMayores = 0, precioReservaMenores = 0, precioFinal = 0
 
@@ -58,10 +58,9 @@ while (repetir) {
             console.log("Ingreso de pelicula no valida")
             continue
     }
-    alert(`La pelicula seleccionada es ${pelicula}. Para ${cantMayores} mayores y ${cantMenores} menores`)
-    const reserva = new Reserva(pelicula, cantMayores, cantMenores, conteoReserva)
+    const reserva = new Reserva(pelicula, cantMayores, cantMenores, idReserva)
     reservas.push(reserva)
-    conteoReserva++
+    idReserva++
     if (cantMayores > 0) {
         precioReservaMayores = calcularEntrada(cantMayores, "mayor")
     }
@@ -81,3 +80,21 @@ while (repetir) {
 console.log(reservas)
 cancelarReserva(1)
 console.log(reservas)
+
+if (reservas.length > 0) {
+    const divEntradas = document.getElementById("divEntradas")
+    reservas.forEach(reserva => {
+        divEntradas.innerHTML += `
+    <div class="cardReserva" id="reserva${reserva.Id}">
+    <p>Pelicula: ${reserva.Pelicula}</p>
+    <p>Mayores: ${reserva.Mayores}</p>
+    <p>Menores: ${reserva.Menores}</p>
+    <p>Numero de Reserva: ${reserva.Id}</p>
+    <button id=btnReserva${reservas.length}>CANCELAR RESERVA</button>
+    </div>
+    `
+    })
+}
+
+
+
