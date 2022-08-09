@@ -12,7 +12,32 @@
 
     </header>
     <main>
-        <div id="divEntradas"></div>
+        <section>
+            <form id="formEntrada">
+                <div>
+                    <h3>Reserva de entradas</h3>
+                </div>
+                <div>
+                    <label for="pelicula">Seleccione una pelicula</label>
+                    <select name="" id="pelicula">
+                        <option value="0">--</option>
+                        <option value="El Telefono Negro">El Telefono Negro</option>
+                        <option value="La Casa Embrujada">La Casa Embrujada</option>
+                        <option value="Los Minions">Los Minions</option>
+                        <option value="Avatar, El Camino Del Agua">Avatar, El Camino Del Agua</option>
+                    </select><br>
+                    <label for="mayor">¿Cuantos mayores son?</label>
+                    <input type="number" id="mayor" value="0"><br>
+                    <label for="menor">¿Cuantos menores son?</label>
+                    <input type="number" id="menor" value="0">
+                    <input type="submit" value="Reservar">
+                </div>
+                
+            </form>
+        </section>
+        <section>
+            <div id="divEntradas"></div>
+        </section>
     </main>
     <footer>
         
