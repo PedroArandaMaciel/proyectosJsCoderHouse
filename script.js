@@ -23,6 +23,7 @@ function calcularEntrada(cantidadDeEntradas = 1, edad = "") {
 }
 function insertarHtml() {
     const divEntradas = document.getElementById("divEntradas")
+    divEntradas.innerText = ""
     reservas.forEach(reserva => {
         divEntradas.innerHTML += `
         <div class="cardReserva" id="reserva${reserva.Id}">
@@ -44,7 +45,7 @@ formEntrada.addEventListener("submit", (event) => {
     let pelicula = document.getElementById("pelicula").value
     const cantMayores = parseInt(document.getElementById("mayor").value)
     const cantMenores = parseInt(document.getElementById("menor").value)
-    if ((cantMayores != 0 || cantMenores != 0) && (pelicula != 0)) {
+    if ((cantMayores >= 0 && cantMenores >= 0) && (cantMayores != 0 || cantMenores != 0) && (pelicula != 0)) {
         const entrada = new Reserva(pelicula, cantMayores, cantMenores, idReserva)
         reservas.push(entrada)
         console.log(reservas)
