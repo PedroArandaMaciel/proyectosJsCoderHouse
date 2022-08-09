@@ -40,7 +40,7 @@ let idReserva = 1
 const formEntrada = document.getElementById("formEntrada")
 formEntrada.addEventListener("submit", (event) => {
     event.preventDefault()
-    let precioReservaMayores, precioReservaMenores
+    let precioReservaMayores = 0, precioReservaMenores = 0
     let pelicula = document.getElementById("pelicula").value
     const cantMayores = parseInt(document.getElementById("mayor").value)
     const cantMenores = parseInt(document.getElementById("menor").value)
